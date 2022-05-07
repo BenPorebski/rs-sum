@@ -1,6 +1,19 @@
 use rand::Rng;
 use std::time;
 
+///Branch predicted for loop that sums numbers.
+fn branched_loop(a: &Vec<i32>) {
+    let mut s: i32 = 0;
+    let t_start = time::Instant::now();
+    for &x in a {
+        if x < 50 {
+            s += x;
+        }
+    }
+    println!("Summed {} random numbers in {}us.", a.len(), t_start.elapsed().as_micros());
+    println!("{}", s);
+}
+
 ///Non-branch predicted for loop that sums numbers.
 fn nonbranched_loop(a: &Vec<i32>) {
     let mut s: i32 = 0;
